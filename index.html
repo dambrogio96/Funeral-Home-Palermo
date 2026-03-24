@@ -3,23 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funeral Home Palermo | Via G. Mancino 31</title>
-    <meta name="description" content="Onoranze Funebri Palermo. Servizi completi in via Giuseppe Mancino 31. Preventivo immediato su WhatsApp.">
+    <title>Funeral Home Palermo | International Repatriation Services</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --oro: #c5a059;
-            --oro-dark: #a68549;
             --bg-dark: #121212;
             --card-bg: #1e1e1e;
             --text-light: #f4f4f4;
-            --text-dim: #b3b3b3;
         }
 
         body { margin: 0; font-family: 'Raleway', sans-serif; background: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--oro); text-transform: uppercase; letter-spacing: 2px; text-align: center; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--oro); text-transform: uppercase; text-align: center; }
+
+        /* LANGUAGE SWITCHER */
+        .lang-switch {
+            position: fixed; top: 20px; right: 20px; z-index: 1000;
+            display: flex; gap: 10px;
+        }
+        .lang-btn {
+            background: rgba(0,0,0,0.6); border: 1px solid var(--oro); color: var(--oro);
+            padding: 5px 12px; cursor: pointer; border-radius: 4px; font-weight: bold;
+        }
+        .lang-btn.active { background: var(--oro); color: black; }
 
         /* HERO */
         .hero {
@@ -28,197 +36,167 @@
                         url('https://images.unsplash.com/photo-1516962080544-eac695c93791?auto=format&fit=crop&q=80&w=1600') center/cover;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 20px;
         }
-        .logo-img { width: 100%; max-width: 700px; height: auto; margin-bottom: 20px; filter: drop-shadow(0 0 15px rgba(0,0,0,0.6)); }
+        .logo-img { width: 100%; max-width: 600px; height: auto; margin-bottom: 20px; }
 
-        section { padding: 60px 20px; max-width: 1100px; margin: auto; }
+        section { padding: 40px 20px; max-width: 1100px; margin: auto; }
 
-        /* DISCLAIMER */
         .disclaimer-prezzi {
-            background: rgba(197, 160, 89, 0.05);
-            border: 2px solid var(--oro);
-            padding: 25px;
-            text-align: center;
-            border-radius: 8px;
-            margin-bottom: 40px;
+            background: rgba(197, 160, 89, 0.1); border: 2px solid var(--oro);
+            padding: 20px; text-align: center; border-radius: 8px; margin-bottom: 30px;
         }
-        .disclaimer-prezzi h3 { margin: 0; color: var(--oro); font-size: 1.6rem; }
-        .disclaimer-prezzi p { margin: 10px 0 0; font-weight: bold; text-transform: uppercase; color: #fff; letter-spacing: 1px; }
 
         /* CONFIGURATORE */
-        .configuratore { background: var(--card-bg); padding: 40px; border-radius: 8px; border: 1px solid #333; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
-        .step { margin-bottom: 30px; border-bottom: 1px solid #2a2a2a; padding-bottom: 20px; }
-        .step:last-of-type { border-bottom: none; }
+        .configuratore { background: var(--card-bg); padding: 30px; border-radius: 8px; border: 1px solid #333; }
+        .step { margin-bottom: 25px; border-bottom: 1px solid #2a2a2a; padding-bottom: 15px; }
+        label { display: block; margin-bottom: 10px; color: var(--oro); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; }
         
-        label { display: block; margin-bottom: 12px; font-weight: 600; color: var(--oro); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
-        select, input[type="text"] { width: 100%; padding: 15px; background: #2a2a2a; border: 1px solid #444; color: white; border-radius: 4px; box-sizing: border-box; font-size: 1rem; transition: 0.3s; }
-        select:focus { border-color: var(--oro); outline: none; }
+        select, input { width: 100%; padding: 12px; background: #2a2a2a; border: 1px solid #444; color: white; border-radius: 4px; box-sizing: border-box; }
 
-        .checkbox-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin-top: 10px; }
-        .check-item { background: #2a2a2a; padding: 12px; border-radius: 4px; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; border: 1px solid #333; transition: 0.3s; }
-        .check-item:hover { border-color: var(--oro); }
-        input[type="checkbox"] { accent-color: var(--oro); width: 18px; height: 18px; }
+        .checkbox-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+        .check-item { background: #2a2a2a; padding: 10px; border-radius: 4px; display: flex; align-items: center; gap: 8px; font-size: 0.85rem; }
 
-        #totale-box { font-size: 3rem; text-align: center; margin: 30px 0; color: var(--oro); font-family: 'Playfair Display', serif; font-weight: bold; background: #1a1a1a; padding: 20px; border-radius: 4px; }
+        #totale-box { font-size: 2.5rem; text-align: center; margin: 20px 0; color: var(--oro); font-family: 'Playfair Display', serif; }
 
-        button { width: 100%; padding: 22px; border-radius: 4px; font-weight: bold; text-transform: uppercase; cursor: pointer; transition: 0.3s; border: none; letter-spacing: 1px; }
-        .btn-whatsapp { background: #25D366; color: white; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 20px; }
-        .btn-whatsapp:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
+        .btn-whatsapp { 
+            background: #25D366; color: white; padding: 20px; border: none; border-radius: 4px; 
+            width: 100%; font-weight: bold; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px;
+        }
 
-        /* MAPPA */
-        .map-container { width: 100%; height: 500px; border-radius: 8px; overflow: hidden; border: 2px solid var(--oro); margin-top: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .map-container { width: 100%; height: 400px; border-radius: 8px; overflow: hidden; border: 1px solid var(--oro); margin-top: 20px; }
+        footer { text-align: center; padding: 40px; background: #0a0a0a; border-top: 1px solid #222; }
 
-        footer { text-align: center; padding: 60px 20px; background: #0a0a0a; border-top: 1px solid #222; color: var(--text-dim); }
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 32px; z-index: 100; box-shadow: 0 5px 20px rgba(0,0,0,0.6); transition: 0.3s; }
-        .whatsapp-float:hover { transform: scale(1.1); }
-
-        @media (max-width: 600px) { #totale-box { font-size: 2.2rem; } .hero h1 { font-size: 1.8rem; } }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 30px; z-index: 100; }
     </style>
 </head>
 <body>
 
-    <div class="hero">
-        <img src="https://i.imgur.com/XL1pSuM.jpeg" alt="Logo Funeral Home Palermo" class="logo-img">
-        <h1>Funeral Home Palermo</h1>
-        <p>Tradizione e Rispetto in Via Giuseppe Mancino 31, Palermo</p>
+    <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLanguage('it')">IT</button>
+        <button class="lang-btn" onclick="setLanguage('en')">EN</button>
     </div>
 
-    <section id="preventivatore">
-        <h2>Configuratore Preventivo Personalizzato</h2>
+    <div class="hero">
+        <img src="https://i.imgur.com/XL1pSuM.jpeg" alt="Logo" class="logo-img">
+        <h1 id="hero-title">Funeral Home Palermo</h1>
+        <p id="hero-sub">Via Giuseppe Mancino 31, Palermo - Reperibilità 24h</p>
+    </div>
+
+    <section>
+        <h2 id="section-title">Preventivo Istantaneo</h2>
         
         <div class="disclaimer-prezzi">
-            <h3>⚠️ AVVISO IMPORTANTE</h3>
-            <p>I PREZZI INDICATI SONO ESCLUSI DI SPESE CIMITERIALI, DIRITTI COMUNALI E TASSE GOVERNATIVE.</p>
+            <h3 id="disc-title">⚠️ NOTA</h3>
+            <p id="disc-text">PREZZI ESCLUSI DI SPESE CIMITERIALI E TASSE COMUNALI</p>
         </div>
 
         <div class="configuratore">
             <div class="step">
-                <label>1. Tipologia di Rito</label>
+                <label id="lbl-rito">Tipo di Rito</label>
                 <select id="rito" onchange="calcola()">
-                    <option value="0" data-name="Religioso">Rito Religioso Completo</option>
-                    <option value="0" data-name="Civile">Rito Civile / Laico</option>
-                    <option value="0" data-name="Solo Tumulazione">Solo Tumulazione (Senza Cerimonia)</option>
+                    <option value="0" data-it="Religioso" data-en="Religious Service">Religioso</option>
+                    <option value="0" data-it="Civile" data-en="Civil Service">Civile</option>
                 </select>
             </div>
 
             <div class="step">
-                <label>2. Destinazione Finale</label>
+                <label id="lbl-dest">Destinazione</label>
                 <select id="servizio" onchange="calcola()">
-                    <option value="1600" data-name="Cremazione">Cremazione (Urna inclusa) - €1600</option>
-                    <option value="1900" data-name="Inumazione">Inumazione a Terra - €1900</option>
-                    <option value="2100" data-name="Tumulazione">Tumulazione in Loculo/Cappella - €2100</option>
+                    <option value="1600" data-it="Cremazione" data-en="Cremation">Cremazione - €1600</option>
+                    <option value="1900" data-it="Inumazione" data-en="Burial">Inumazione - €1900</option>
+                    <option value="2500" data-it="Rientro Internazionale" data-en="International Repatriation">Rientro Internazionale - €2500</option>
                 </select>
             </div>
 
             <div class="step">
-                <label>3. Scelta del Cofano (Bara)</label>
+                <label id="lbl-bara">Cofano (Bara)</label>
                 <select id="bara" onchange="calcola()">
-                    <option value="600" data-name="Legno Larice">Modello Classico Larice - €600</option>
-                    <option value="1300" data-name="Frassino Satinato">Modello Frassino Satinato - €1300</option>
-                    <option value="2200" data-name="Roveree Intarsiato">Modello Rovere Pregiato - €2200</option>
-                    <option value="4500" data-name="Mogano Extra Lusso">Modello Mogano Presidenziale - €4500</option>
+                    <option value="600" data-it="Base" data-en="Standard Wood">Base - €600</option>
+                    <option value="1300" data-it="Elegante" data-en="Elegant Wood">Elegante - €1300</option>
+                    <option value="4500" data-it="Lusso" data-en="Luxury Casket">Lusso - €4500</option>
                 </select>
             </div>
 
             <div class="step">
-                <label>4. Fioreria e Allestimenti</label>
+                <label id="lbl-extra">Servizi Extra</label>
                 <div class="checkbox-grid">
-                    <div class="check-item"><input type="checkbox" value="150" class="extra" data-name="Copricofano Standard" onchange="calcola()"> Copricofano Fiori Stagione (+€150)</div>
-                    <div class="check-item"><input type="checkbox" value="300" class="extra" data-name="Copricofano Rose" onchange="calcola()"> Copricofano di Rose (+€300)</div>
-                    <div class="check-item"><input type="checkbox" value="100" class="extra" data-name="Allestimento Camera Ardente" onchange="calcola()"> Allestimento Camera Ardente (+€100)</div>
-                    <div class="check-item"><input type="checkbox" value="80" class="extra" data-name="Tappeto e Cavalletti" onchange="calcola()"> Kit Tappeto e Parati (+€80)</div>
+                    <div class="check-item"><input type="checkbox" value="350" class="extra" data-it="Auto Lusso" data-en="Luxury Hearse" onchange="calcola()"> <span class="ext-txt">Auto Lusso (+€350)</span></div>
+                    <div class="check-item"><input type="checkbox" value="200" class="extra" data-it="Pratiche" data-en="Paperwork" onchange="calcola()"> <span class="ext-txt">Pratiche (+€200)</span></div>
+                    <div class="check-item"><input type="checkbox" value="150" class="extra" data-it="Fiori" data-en="Flowers" onchange="calcola()"> <span class="ext-txt">Fiori (+€150)</span></div>
+                    <div class="check-item"><input type="checkbox" value="300" class="extra" data-it="Zinco Interno" data-en="Zinc Liner (for flights)" onchange="calcola()"> <span class="ext-txt">Zinco (Voli) (+€300)</span></div>
                 </div>
             </div>
 
-            <div class="step">
-                <label>5. Servizi Professionali e Logistica</label>
-                <div class="checkbox-grid">
-                    <div class="check-item"><input type="checkbox" value="350" class="extra" data-name="Auto Funebre Lusso" onchange="calcola()"> Auto Funebre Mercedes/Jaguar (+€350)</div>
-                    <div class="check-item"><input type="checkbox" value="250" class="extra" data-name="Auto Accompagnamento" onchange="calcola()"> Auto Accompagnamento Familiari (+€250)</div>
-                    <div class="check-item"><input type="checkbox" value="150" class="extra" data-name="Vestizione e Trattamento" onchange="calcola()"> Vestizione e Igiene Salma (+€150)</div>
-                    <div class="check-item"><input type="checkbox" value="200" class="extra" data-name="Disbrigo Pratiche" onchange="calcola()"> Disbrigo Pratiche Amministrative (+€200)</div>
-                    <div class="check-item"><input type="checkbox" value="120" class="extra" data-name="Valletti Porta Feretro" onchange="calcola()"> Squadra Valletti (4 persone) (+€120)</div>
-                    <div class="check-item"><input type="checkbox" value="90" class="extra" data-name="Manifesti e Ricordini" onchange="calcola()"> Manifesti e 50 Ricordini (+€90)</div>
-                </div>
-            </div>
-
-            <div id="totale-box">Totale Stimato: €0</div>
-
-            <div class="step">
-                <label>Dati per il contatto diretto</label>
-                <input type="text" id="nome" placeholder="Inserisci il tuo Nome e Cognome">
-            </div>
-
-            <button class="btn-whatsapp" onclick="inviaWhatsApp()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-2.202 0-3.991 1.789-3.991 3.991 0 .506.094 1.001.277 1.458l-1.316 4.805 4.921-1.291c.442.166.91.25 1.386.25 2.201 0 3.991-1.789 3.991-3.991 0-2.202-1.79-3.991-3.991-3.991zm3.176 5.619c-.11.317-.611.583-.918.627-.243.036-.56.059-.923-.058-.231-.074-1.018-.392-1.939-1.213-.717-.639-1.199-1.431-1.34-1.671-.14-.241-.015-.37.106-.49.11-.11.243-.284.363-.427.121-.143.161-.241.241-.402.08-.161.041-.301-.021-.422-.061-.121-.543-1.309-.743-1.791-.197-.472-.397-.408-.543-.415-.14-.007-.301-.008-.461-.008-.161 0-.422.06-.643.301-.222.241-.843.823-.843 2.008 0 1.185.863 2.33 1.003 2.511.14.181 1.666 2.541 4.035 3.562.564.243 1.004.388 1.348.497.566.181 1.082.155 1.49.094.456-.068 1.4-.572 1.599-1.126.201-.555.201-1.031.141-1.131-.06-.099-.222-.161-.503-.301z"/><path d="M12 1c-6.075 0-11 4.925-11 11 0 2.42 0 4.76 1.11 6.91l-1.11 4.09 4.13-1.08c2.15 1.08 4.49 1.08 6.87 1.08 6.075 0 11-4.925 11-11 0-6.075-4.925-11-11-11zm0 20.33c-1.88 0-3.73-.48-5.38-1.4l-.38-.21-2.43.64.65-2.37-.24-.38c-.97-1.55-1.48-3.34-1.48-5.18 0-5.14 4.19-9.33 9.33-9.33 5.14 0 9.33 4.19 9.33 9.33 0 5.14-4.19 9.33-9.33 9.33z"/></svg>
-                RICHIEDI QUOTAZIONE FORMALE
-            </button>
+            <div id="totale-box">Total: €0</div>
+            <input type="text" id="nome" placeholder="Nome / Name">
+            <button class="btn-whatsapp" onclick="inviaWhatsApp()">SEND TO WHATSAPP</button>
         </div>
     </section>
 
-    <section id="mappa">
-        <h2>La Nostra Sede a Palermo</h2>
+    <section>
+        <h2 id="map-title">Dove Siamo</h2>
         <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d784.8736984627776!2d13.351919269637492!3d38.10542175352812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1319ef7b78be2469%3A0x8faed4c04bb7d8f1!2sFuneral%20Home%20Palermo!5e0!3m2!1sit!2sit!4v1774383849400!5m2!1sit!2sit" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d784.8736984627776!2d13.351919269637492!3d38.10542175352812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1319ef7b78be2469%3A0x8faed4c04bb7d8f1!2sFuneral%20Home%20Palermo!5e0!3m2!1sit!2sit!4v1774383849400!5m2!1sit!2sit" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
     <a href="https://wa.me/393343484670" class="whatsapp-float">💬</a>
 
-    <footer>
-        <p><b>Funeral Home Palermo</b><br>
-        Via Giuseppe Mancino 31, 90128 Palermo (PA)<br>
-        Reperibilità h24: 334 348 4670 | P.IVA: [INSERIRE QUI]<br>
-        © 2026 Funeral Home Palermo - Professionalità e Rispetto.</p>
-    </footer>
-
     <script>
-        let totaleFinale = 0;
-        let riepilogoWA = "";
+        let currentLang = 'it';
+        let totale = 0;
+
+        const translations = {
+            it: {
+                heroTitle: "Funeral Home Palermo", heroSub: "Via G. Mancino 31 - Reperibilità 24h",
+                sectTitle: "Preventivo Istantaneo", discTitle: "⚠️ NOTA", discText: "PREZZI ESCLUSI DI SPESE CIMITERIALI E TASSE",
+                lblRito: "Tipo di Rito", lblDest: "Destinazione", lblBara: "Cofano", lblExtra: "Extra",
+                mapTitle: "Dove Siamo", btnWA: "INVIA SU WHATSAPP", placeholder: "Tuo Nome"
+            },
+            en: {
+                heroTitle: "Palermo Funeral Home", heroSub: "Via G. Mancino 31 - 24/7 Availability",
+                sectTitle: "Instant Quote", discTitle: "⚠️ NOTE", discText: "PRICES EXCLUDE CEMETERY FEES AND LOCAL TAXES",
+                lblRito: "Service Type", lblDest: "Destination", lblBara: "Casket", lblExtra: "Extras",
+                mapTitle: "Location", btnWA: "SEND TO WHATSAPP", placeholder: "Your Name"
+            }
+        };
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            document.getElementById('hero-title').innerText = translations[lang].heroTitle;
+            document.getElementById('hero-sub').innerText = translations[lang].heroSub;
+            document.getElementById('section-title').innerText = translations[lang].sectTitle;
+            document.getElementById('disc-title').innerText = translations[lang].discTitle;
+            document.getElementById('disc-text').innerText = translations[lang].discText;
+            document.getElementById('lbl-rito').innerText = translations[lang].lblRito;
+            document.getElementById('lbl-dest').innerText = translations[lang].lblDest;
+            document.getElementById('lbl-bara').innerText = translations[lang].lblBara;
+            document.getElementById('lbl-extra').innerText = translations[lang].lblExtra;
+            document.getElementById('map-title').innerText = translations[lang].mapTitle;
+            document.querySelector('.btn-whatsapp').innerText = translations[lang].btnWA;
+            document.getElementById('nome').placeholder = translations[lang].placeholder;
+            calcola();
+        }
 
         function calcola() {
-            let rito = document.getElementById("rito").options[document.getElementById("rito").selectedIndex].getAttribute('data-name');
-            let s = document.getElementById("servizio");
-            let b = document.getElementById("bara");
-            
-            let costoS = parseInt(s.value);
-            let nomeS = s.options[s.selectedIndex].getAttribute('data-name');
-            
-            let costoB = parseInt(b.value);
-            let nomeB = b.options[b.selectedIndex].getAttribute('data-name');
-
-            let extras = document.querySelectorAll(".extra:checked");
+            let s = document.getElementById('servizio');
+            let b = document.getElementById('bara');
+            let valS = parseInt(s.value);
+            let valB = parseInt(b.value);
             let extraTot = 0;
-            let listaExtra = "";
-
-            extras.forEach(e => {
-                extraTot += parseInt(e.value);
-                listaExtra += "- " + e.getAttribute('data-name') + " (+€" + e.value + ")%0A";
-            });
-
-            totaleFinale = costoS + costoB + extraTot;
-            document.getElementById("totale-box").innerText = "Totale Stimato: €" + totaleFinale;
-
-            // Formattazione per WhatsApp
-            riepilogoWA = "*RICHIESTA PREVENTIVO FUNERAL HOME*%0A" +
-                          "*---------------------------*%0A" +
-                          "*Rito:* " + rito + "%0A" +
-                          "*Servizio:* " + nomeS + "%0A" +
-                          "*Cofano:* " + nomeB + "%0A" +
-                          "*Accessori scelti:*%0A" + (listaExtra || "Nessuno%0A");
+            document.querySelectorAll('.extra:checked').forEach(e => extraTot += parseInt(e.value));
+            
+            totale = valS + valB + extraTot;
+            document.getElementById('totale-box').innerText = "Total: €" + totale;
         }
 
         function inviaWhatsApp() {
-            let nome = document.getElementById("nome").value.trim();
-            if(!nome) { alert("Per favore, inserisci il tuo nome per procedere."); return; }
-            
-            let link = "https://wa.me/393343484670?text=" + riepilogoWA + 
-                       "*---------------------------*%0A" +
-                       "*TOTALE:* €" + totaleFinale + "%0A" +
-                       "*Cliente:* " + nome + "%0A%0A" +
-                       "Prezzi esclusi di tasse cimiteriali e comunali.";
-            window.open(link);
+            let nome = document.getElementById('nome').value;
+            let msg = `Richiesta da sito (${currentLang}): Total €${totale} - Cliente: ${nome}`;
+            window.open(`https://wa.me/393343484670?text=${encodeURIComponent(msg)}`);
         }
-
         window.onload = calcola;
     </script>
 </body>
