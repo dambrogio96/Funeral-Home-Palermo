@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* --- Reset e Variabili --- */
         :root {
             --oro: #c5a059;
             --oro-scuro: #a38241;
@@ -21,11 +20,7 @@
             --whatsapp-hover: #1da851;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Raleway', sans-serif;
@@ -34,7 +29,7 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3, h4 {
+        h1, h2, h3 {
             font-family: 'Playfair Display', serif;
             color: var(--oro);
             text-transform: uppercase;
@@ -43,12 +38,7 @@
             letter-spacing: 1px;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* --- Header Top & Selettore Lingua --- */
+        /* --- Header & Hero --- */
         .header-top {
             padding: 15px 30px;
             display: flex;
@@ -56,306 +46,79 @@
             align-items: center;
             background: #000;
             border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            position: sticky; top: 0; z-index: 1000;
         }
 
-        .contact-top {
-            font-size: 0.95rem;
-            color: var(--oro);
-            font-weight: 600;
-        }
-
-        .contact-top a:hover {
-            color: #fff;
-        }
-
-        .lang-switch {
-            display: flex;
-            gap: 10px;
-        }
-
+        .contact-top { font-size: 0.95rem; color: var(--oro); font-weight: 600; }
+        .lang-switch { display: flex; gap: 10px; }
         .lang-btn {
-            background: #000;
-            border: 1px solid var(--oro);
-            color: var(--oro);
-            padding: 8px 15px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
+            background: #000; border: 1px solid var(--oro); color: var(--oro);
+            padding: 8px 15px; cursor: pointer; border-radius: 4px; font-weight: bold;
         }
+        .lang-btn.active { background: var(--oro); color: #000; }
 
-        .lang-btn.active, .lang-btn:hover {
-            background: var(--oro);
-            color: #000;
-        }
-
-        /* --- Sezione Hero con Logo --- */
         .hero {
-            min-height: 50vh;
+            min-height: 40vh;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(18,18,18,1)), 
                         url('https://i.imgur.com/XL1pSuM.jpeg') center/cover no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 60px 20px;
-            text-align: center;
+            display: flex; justify-content: center; align-items: center; padding: 40px;
         }
+        .logo-img { width: 100%; max-width: 600px; filter: drop-shadow(0 0 15px rgba(0,0,0,0.8)); }
 
-        .logo-img {
-            width: 100%;
-            max-width: 700px;
-            height: auto;
-            filter: drop-shadow(0 0 15px rgba(0,0,0,0.8));
-        }
+        /* --- Main Content --- */
+        main { padding: 40px 20px; max-width: 1000px; margin: auto; }
 
-        /* --- Contenuto Principale --- */
-        main {
-            padding: 60px 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        section {
-            margin-bottom: 60px;
-        }
-
-        /* --- Sezione Flotta --- */
-        .fleet-box {
+        .section-box {
             background: var(--card-bg);
-            border: 2px solid var(--oro);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.7);
-            margin-bottom: 50px;
-        }
-
-        .fleet-img {
-            width: 100%;
-            display: block;
-            height: auto;
-        }
-
-        .fleet-text {
-            padding: 30px;
-            text-align: center;
-        }
-
-        .fleet-text h2 {
-            margin-bottom: 10px;
-        }
-
-        .fleet-text p {
-            color: var(--text-dim);
-            font-size: 1rem;
-        }
-
-        /* --- Sezione Preventivatore --- */
-        .configuratore-container {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 8px;
             border: 1px solid var(--border-color);
-            box-shadow: 0 10px 50px rgba(0,0,0,0.6);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
         }
 
-        .disclaimer-box {
-            background: rgba(197, 160, 89, 0.1);
-            border: 1px solid var(--oro);
-            padding: 25px;
-            border-radius: 6px;
-            margin-bottom: 30px;
+        .fleet-text { text-align: center; margin-bottom: 20px; }
+
+        /* --- Form Elements --- */
+        .form-group { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #333; }
+        label { display: block; margin-bottom: 10px; color: var(--oro); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; }
+        
+        select, input {
+            width: 100%; padding: 12px; background: #2a2a2a; border: 1px solid #444;
+            color: white; border-radius: 4px; font-size: 1rem;
         }
 
-        .disclaimer-box h3 {
-            color: var(--oro);
-            text-align: center;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 768px) { .form-row { grid-template-columns: 1fr; } }
 
-        .disclaimer-item {
-            display: flex;
-            align-items: start;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .disclaimer-item.included { color: #fff; }
-        .disclaimer-item.excluded { color: #aaa; font-size: 0.9rem;}
-
-        .icon-check, .icon-cross {
-            font-size: 1.2rem;
-            margin-top: 3px;
-        }
-        .icon-check { color: #4CAF50; }
-        .icon-cross { color: #F44336; }
-
-        .form-group {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 12px;
-            color: var(--oro);
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-        }
-
-        select, input[type="text"], input[type="number"] {
-            width: 100%;
-            padding: 15px;
-            background: #2a2a2a;
-            border: 1px solid #444;
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        select:focus, input:focus {
-            outline: none;
-            border-color: var(--oro);
-        }
-
-        .info-note {
-            font-size: 0.8rem;
-            color: var(--text-dim);
-            margin-top: 8px;
-            font-style: italic;
-            display: block;
-        }
-
-        /* Layout Grid per Extra e Fiori */
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Quantità Fiori */
-        .flower-qty {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        input[type="number"]#flower-count {
-            width: 120px;
-            text-align: center;
-        }
-
-        /* Checkbox Extra */
-        .checkbox-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 15px;
-        }
+        .qty-input-group { display: flex; align-items: center; gap: 15px; }
+        .qty-input-group input { width: 100px; text-align: center; }
 
         .checkbox-item {
-            background: #2a2a2a;
-            padding: 12px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.9rem;
-            border: 1px solid var(--border-color);
+            background: #2a2a2a; padding: 12px; border-radius: 4px;
+            display: flex; align-items: center; gap: 10px; margin-top: 10px;
+            border: 1px solid #444;
         }
+        input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--oro); }
 
-        input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            accent-color: var(--oro);
-        }
-
-        /* Totale */
         #totale-box {
-            font-size: 3.5rem;
-            text-align: center;
-            margin: 30px 0;
-            color: var(--oro);
-            font-family: 'Playfair Display', serif;
-            background: #1a1a1a;
-            padding: 25px;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-        }
-
-        @media (max-width: 480px) {
-            #totale-box {
-                font-size: 2.8rem;
-            }
-        }
-
-        /* Pulsante WhatsApp */
-        .btn-whatsapp-container {
-            margin-top: 30px;
+            font-size: 3rem; text-align: center; margin: 30px 0; color: var(--oro);
+            font-family: 'Playfair Display', serif; background: #1a1a1a;
+            padding: 20px; border: 2px solid var(--oro); border-radius: 8px;
         }
 
         .btn-whatsapp {
-            background: var(--whatsapp-green);
-            color: white;
-            padding: 20px;
-            border: none;
-            border-radius: 4px;
-            width: 100%;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
+            background: var(--whatsapp-green); color: white; padding: 20px;
+            border: none; border-radius: 4px; width: 100%; font-weight: bold;
+            cursor: pointer; font-size: 1.1rem; text-transform: uppercase;
         }
 
-        .btn-whatsapp:hover {
-            background: var(--whatsapp-hover);
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 50px 20px;
-            background: #000;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-dim);
-            font-size: 0.85rem;
-        }
-
-        footer strong {
-            color: #fff;
-            display: block;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
+        footer { text-align: center; padding: 40px; background: #000; color: var(--text-dim); font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
     <div class="header-top">
-        <div class="contact-top">
-            📞 <a href="tel:0916378825">091 6378825</a> | 
-            📱 <a href="https://wa.me/393343484670">334 3484670 (H24)</a>
-        </div>
+        <div class="contact-top">📞 091 6378825 | 📱 334 3484670 (H24)</div>
         <div class="lang-switch">
             <button class="lang-btn active" id="btn-it" onclick="setLanguage('it')">IT</button>
             <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
@@ -363,247 +126,123 @@
     </div>
 
     <div class="hero">
-        <img src="https://i.imgur.com/XL1pSuM.jpeg" alt="Logo Funeral Home Palermo" class="logo-img">
+        <img src="https://i.imgur.com/XL1pSuM.jpeg" alt="Logo Funeral Home" class="logo-img">
     </div>
 
-    main>
-        <section class="fleet-box">
-            <img src="https://i.imgur.com/XL1pSuM.jpeg" alt="Flotta di Lusso Funeral Home Palermo" class="fleet-img">
+    <main>
+        <section class="section-box">
             <div class="fleet-text">
-                <h2 id="fleet-title">Autovetture di Eccellenza</h2>
-                <p id="fleet-desc">La nostra flotta include autovetture Mercedes-Benz e Maserati, garantendo il massimo decoro, eleganza e solennità.</p>
+                <h2 id="fleet-title">La Nostra Flotta</h2>
+                <p id="fleet-desc">Eccellenza e decoro con mezzi Mercedes-Benz e Maserati.</p>
             </div>
         </section>
 
-        <section class="configuratore-container" id="preventivatore">
+        <section class="section-box">
             <h2 id="quote-title">Preventivo Istantaneo</h2>
             
-            <div class="disclaimer-box">
-                <h3 id="d-header">TERMINI E CONDIZIONI</h3>
-                <div class="disclaimer-item included">
-                    <span class="icon-check">&#10003;</span>
-                    <span id="d-inc"><b>INCLUSO:</b> Disbrigo pratiche, Vestizione salma, Carro base Mercedes Classe E.</span>
-                </div>
-                <div class="disclaimer-item excluded">
-                    <span class="icon-cross">&#10007;</span>
-                    <span id="d-exc"><b>ESCLUSO:</b> Marche da bollo, Diritti ASP Palermo, Spese Cimiteriali e Comunali.</span>
-                </div>
-                <p class="info-note" style="text-align:center; margin-top:15px; font-weight:600;">Frigosalma (Opzionale): €80/giorno dopo 24h dalla visita necroscopica.</p>
+            <div class="form-group">
+                <label id="l-tipo">Tipologia Funerale</label>
+                <select id="funerale" onchange="toggleCofani(); calcolaTotal();">
+                    <option value="1500" data-it="Inumazione" data-en="Inhumation">Inumazione - €1500</option>
+                    <option value="1850" data-it="Tumulazione" data-en="Entombment">Tumulazione - €1850</option>
+                    <option value="1750" data-it="Cremazione Palermo" data-en="Cremation Palermo">Cremazione Palermo - €1750</option>
+                    <option value="2200" data-it="Cremazione Delia" data-en="Cremation Delia">Cremazione Delia - €2200</option>
+                </select>
             </div>
 
-            <div class="preventivatore-form">
+            <div class="form-group">
+                <label id="l-cofano">Cofano (Bara)</label>
+                <select id="bara" onchange="calcolaTotal()"></select>
+            </div>
+
+            <div class="form-row">
                 <div class="form-group">
-                    <label id="l-tipo" for="funerale">Tipologia di Funerale</label>
-                    <select id="funerale" onchange="toggleCofani(); calcolaTotal();">
-                        <option value="1500" data-it="Inumazione" data-en="Inhumation">Inumazione - €1500</option>
-                        <option value="1850" data-it="Tumulazione in sepoltura" data-en="Entombment">Tumulazione in sepoltura - €1850</option>
-                        <option value="1750" data-it="Cremazione Palermo (Turnazione)" data-en="Cremation Palermo">Cremazione Palermo (Turnazione) - €1750</option>
-                        <option value="2200" data-it="Cremazione Delia" data-en="Cremation Delia">Cremazione Delia - €2200</option>
-                    </select>
-                    <span class="info-note" id="note-crem">* Urna base (nera/blu) inclusa nelle cremazioni.</span>
-                </div>
-
-                <div class="form-group">
-                    <label id="l-cofano" for="bara">Cofano (Bara)</label>
-                    <select id="bara" onchange="calcolaTotal()">
-                        </select>
-                    <span class="info-note" id="note-bara">* Lo zinco è obbligatorio per la tumulazione.</span>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label id="l-fiori">Addobbi Floreali (Fiori Stagione)</label>
-                        <div class="flower-qty">
-                            <input type="number" id="flower-count" value="0" min="0" step="1" onchange="calcolaTotal()">
-                            <span class="info-note">€150 Cad.</span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label id="l-extra">Servizi Opzionali</label>
-                        <div class="checkbox-grid">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="chk-foto" value="100" class="extra-service" onchange="calcolaTotal()">
-                                <label for="chk-foto">Fotoceramica 9x12 (+€100)</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="chk-luttini" value="50" class="extra-service" onchange="calcolaTotal()">
-                                <label for="chk-luttini">Luttini 50pz (+€50)</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="chk-auto" value="350" class="extra-service" onchange="calcolaTotal()">
-                                <label for="chk-auto">Auto Lusso (+€350)</label>
-                            </div>
-                        </div>
+                    <label id="l-fiori">Fiori (Pezzi)</label>
+                    <div class="qty-input-group">
+                        <input type="number" id="flower-count" value="0" min="0" onchange="calcolaTotal()">
+                        <span>€150 cad.</span>
                     </div>
                 </div>
-
-                <div id="totale-box">€0</div>
-                <div class="form-group" style="border-bottom:none; margin-bottom:0; padding-bottom:0;">
-                    <input type="text" id="nome-cliente" placeholder="Il tuo Nome e Cognome" required>
-                </div>
-
-                <div class="btn-whatsapp-container">
-                    <button class="btn-whatsapp" onclick="sendWhatsApp()">
-                        <i>💬</i> <span id="btn-wa">Invia Preventivo su WhatsApp</span>
-                    </button>
+                <div class="form-group">
+                    <label id="l-luttini">Luttini (Quantità)</label>
+                    <div class="qty-input-group">
+                        <input type="number" id="luttini-count" value="0" min="0" onchange="calcolaTotal()">
+                        <span>€1 cad.</span>
+                    </div>
                 </div>
             </div>
+
+            <div class="form-group">
+                <label>Extra</label>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="chk-foto" value="100" onchange="calcolaTotal()">
+                    <label for="chk-foto" style="margin:0; color:#fff;">Fotoceramica 9x12 (+€100)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="chk-auto" value="350" onchange="calcolaTotal()">
+                    <label for="chk-auto" style="margin:0; color:#fff;">Auto Lusso (+€350)</label>
+                </div>
+            </div>
+
+            <div id="totale-box">€0</div>
+            
+            <input type="text" id="nome-cliente" placeholder="Inserisci il tuo nome" style="margin-bottom:20px;">
+            <button class="btn-whatsapp" onclick="sendWhatsApp()">Invia su WhatsApp</button>
         </section>
     </main>
 
     <footer>
         <strong>Funeral Home Palermo</strong>
-        Via Giuseppe Mancino 31, 90128 Palermo (PA)<br>
-        Ufficio: <a href="tel:0916378825">091 6378825</a> | 
-        Cell: <a href="tel:3343484670">334 3484670 (H24)</a><br>
-        Email: <a href="mailto:funeralhomepalermo@gmail.com">funeralhomepalermo@gmail.com</a>
+        Via Giuseppe Mancino 31, Palermo<br>
+        H24: 334 3484670
     </footer>
 
     <script>
         let currentLang = 'it';
-        let totaleBase = 0;
-
-        // --- Traduzioni ---
-        const translations = {
-            it: {
-                fleetTitle: "Autovetture di Eccellenza",
-                fleetDesc: "La nostra flotta include autovetture Mercedes-Benz e Maserati, garantendo il massimo decoro, eleganza e solennità.",
-                quoteTitle: "Preventivo Istantaneo",
-                dHeader: "TERMINI E CONDIZIONI",
-                dInc: "<b>INCLUSO:</b> Disbrigo pratiche, Vestizione salma, Carro base Mercedes Classe E.",
-                dExc: "<b>ESCLUSO:</b> Marche da bollo, Diritti ASP Palermo, Spese Cimiteriali e Comunali.",
-                noteCrem: "* Urna base (nera/blu) inclusa nelle cremazioni.",
-                noteBara: "* Lo zinco è obbligatorio per la tumulazione.",
-                lTipo: "Tipologia di Funerale",
-                lCofano: "Cofano (Bara)",
-                lFiori: "Addobbi Floreali (Fiori Stagione)",
-                lExtra: "Servizi Opzionali",
-                extraAuto: "Auto Lusso (+€350)",
-                placeholderName: "Il tuo Nome e Cognome",
-                btnWa: "Invia Preventivo su WhatsApp",
-                noZinc: "Senza zinco",
-                withZinc: "CON zinco",
-                base: "Base",
-                优雅: "Elegante",
-                lussu: "Lusso"
-            },
-            en: {
-                fleetTitle: "Premier Funeral Vehicles",
-                fleetDesc: "Our fleet features Mercedes-Benz and Maserati vehicles, ensuring utmost dignity, elegance, and solemnity.",
-                quoteTitle: "Instant Quote",
-                dHeader: "TERMS & CONDITIONS",
-                dInc: "<b>INCLUDED:</b> Paperwork handling, Body dressing, Mercedes E-Class basic hearse.",
-                dExc: "<b>EXCLUDED:</b> Revenue stamps, Local Health Authority fees, Cemetery & Municipality fees.",
-                noteCrem: "* Standard urn (black/blue) included in cremations.",
-                noteBara: "* Zinc is mandatory for entombment.",
-                lTipo: "Type of Funeral",
-                lCofano: "Casket (Coffin)",
-                lFiori: "Floral Arrangements (Seasonal Fiori)",
-                lExtra: "Optional Services",
-                extraAuto: "Luxury Car (+€350)",
-                placeholderName: "Your Full Name",
-                btnWa: "Send Quote on WhatsApp",
-                noZinc: "Without zinc",
-                withZinc: "WITH zinc",
-                base: "Standard",
-                优雅: "Elegant",
-                lussu: "Luxury"
-            }
+        const trans = {
+            it: { fleetTitle: "La Nostra Flotta", quoteTitle: "Preventivo Istantaneo", base: "Base", lusso: "Lusso", zinc: "con Zinco" },
+            en: { fleetTitle: "Our Fleet", quoteTitle: "Instant Quote", base: "Standard", lusso: "Luxury", zinc: "with Zinc" }
         };
 
-        function setLanguage(lang) {
-            currentLang = lang;
-            
-            // Aggiorna classi pulsanti
-            document.getElementById('btn-it').classList.remove('active');
-            document.getElementById('btn-en').classList.remove('active');
-            document.getElementById(`btn-${lang}`).classList.add('active');
-
-            // Traduci elementi
-            document.getElementById('fleet-title').innerText = translations[lang].fleetTitle;
-            document.getElementById('fleet-desc').innerText = translations[lang].fleetDesc;
-            document.getElementById('quote-title').innerText = translations[lang].quoteTitle;
-            document.getElementById('d-header').innerText = translations[lang].dHeader;
-            document.getElementById('d-inc').innerHTML = translations[lang].dInc;
-            document.getElementById('d-exc').innerHTML = translations[lang].dExc;
-            document.getElementById('note-crem').innerText = translations[lang].noteCrem;
-            document.getElementById('note-bara').innerText = translations[lang].noteBara;
-            document.getElementById('l-tipo').innerText = translations[lang].lTipo;
-            document.getElementById('l-cofano').innerText = translations[lang].lCofano;
-            document.getElementById('l-fiori').innerText = translations[lang].lFiori;
-            document.getElementById('l-extra').innerText = translations[lang].lExtra;
-            document.querySelector('label[for="chk-auto"]').innerText = translations[lang].extraAuto;
-            document.getElementById('nome-cliente').placeholder = translations[lang].placeholderName;
-            document.getElementById('btn-wa').innerText = translations[lang].btnWa;
-
-            // Aggiorna dinamicamente i testi delle opzioni del tipo funerale
-            const funeraleSelect = document.getElementById('funerale');
-            Array.from(funeraleSelect.options).forEach(option => {
-                option.text = `${option.getAttribute(`data-${lang}`)} - €${option.value}`;
-            });
-
-            // Ricarica i cofani per aggiornare le traduzioni
+        function setLanguage(l) {
+            currentLang = l;
+            document.getElementById('fleet-title').innerText = trans[l].fleetTitle;
+            document.getElementById('quote-title').innerText = trans[l].quoteTitle;
             toggleCofani();
         }
 
         function toggleCofani() {
             const tipo = document.getElementById('funerale').value;
-            const selectBara = document.getElementById('bara');
-            const isTumulazione = (tipo == "1850");
-            
-            selectBara.innerHTML = "";
-            const optBase = translations[currentLang].base;
-            const optEle = translations[currentLang].优雅;
-            const optLus = translations[currentLang].lussu;
-            const sZinco = translations[currentLang].withZinc;
-            const sNoZinco = translations[currentLang].noZinc;
-            
-            if(isTumulazione) {
-                selectBara.innerHTML += `<option value="800">${optBase} ${sZinco} - €800</option>`;
-                selectBara.innerHTML += `<option value="1200">${optEle} ${sZinco} - €1200</option>`;
-                selectBara.innerHTML += `<option value="2300">${optLus} ${sZinco} - €2300</option>`;
-            } else {
-                selectBara.innerHTML += `<option value="500">${optBase} ${sNoZinco} - €500</option>`;
-                selectBara.innerHTML += `<option value="1200">${optEle} - €1200</option>`;
-                selectBara.innerHTML += `<option value="2300">${optLus} - €2300</option>`;
-            }
+            const select = document.getElementById('bara');
+            const isTum = (tipo == "1850");
+            select.innerHTML = isTum ? 
+                `<option value="800">${trans[currentLang].base} ${trans[currentLang].zinc} - €800</option><option value="2300">${trans[currentLang].lusso} ${trans[currentLang].zinc} - €2300</option>` :
+                `<option value="500">${trans[currentLang].base} - €500</option><option value="2300">${trans[currentLang].lusso} - €2300</option>`;
             calcolaTotal();
         }
 
         function calcolaTotal() {
             const funerale = parseInt(document.getElementById('funerale').value);
             const bara = parseInt(document.getElementById('bara').value);
-            const countFiori = parseInt(document.getElementById('flower-count').value) || 0;
-            const costoFiori = countFiori * 150;
-            
+            const fiori = (parseInt(document.getElementById('flower-count').value) || 0) * 150;
+            const luttini = (parseInt(document.getElementById('luttini-count').value) || 0) * 1;
             let extra = 0;
-            document.querySelectorAll('.extra-service:checked').forEach(chk => {
-                extra += parseInt(chk.value);
-            });
-            
-            const totale = funerale + bara + costoFiori + extra;
+            if(document.getElementById('chk-foto').checked) extra += 100;
+            if(document.getElementById('chk-auto').checked) extra += 350;
+
+            const totale = funerale + bara + fiori + luttini + extra;
             document.getElementById('totale-box').innerText = `€${totale}`;
         }
 
         function sendWhatsApp() {
             const nome = document.getElementById('nome-cliente').value;
-            if(!nome) { alert("Per favore, inserisci il tuo Nome e Cognome."); return; }
-            
-            const f = document.getElementById('funerale');
-            const b = document.getElementById('bara');
-            const fiori = document.getElementById('flower-count').value;
-            const totale = document.getElementById('totale-box').innerText;
-            
-            const msg = `Richiesta Preventivo Funeral Home Palermo\n----------------------------------\nTipo Funerale: ${f.options[f.selectedIndex].text}\nCofano: ${b.options[b.selectedIndex].text}\nAddobbi Floreali (pz): ${fiori}\nTotale Stimato: ${totale}\n----------------------------------\nCliente: ${nome}`;
-            
+            if(!nome) { alert("Inserisci il nome"); return; }
+            const tot = document.getElementById('totale-box').innerText;
+            const msg = `Richiesta Preventivo - Funeral Home Palermo\nCliente: ${nome}\nTotale Stimato: ${tot}`;
             window.open(`https://wa.me/393343484670?text=${encodeURIComponent(msg)}`);
         }
 
-        // --- Inizializzazione ---
-        window.onload = () => {
-            setLanguage('it'); // Imposta lingua predefinita
-        };
+        window.onload = toggleCofani;
     </script>
 </body>
 </html>
