@@ -1,200 +1,305 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Funeral Home Palermo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funeral Home Palermo | Servizi Funebri di Eccellenza</title>
+    <meta name="description" content="Onoranze Funebri a Palermo. Servizi completi, cremazione e trasporti. Preventivo immediato su WhatsApp.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
 
-<style>
-body {
-  margin:0;
-  font-family: 'Georgia', serif;
-  background:#0a0a0a;
-  color:#eaeaea;
-}
+    <style>
+        :root {
+            --oro: #c5a059;
+            --oro-dark: #a68549;
+            --bg-dark: #121212;
+            --card-bg: #1e1e1e;
+            --text-light: #f4f4f4;
+            --text-dim: #b3b3b3;
+        }
 
-/* HERO */
-.hero {
-  height:100vh;
-  background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
-              url("https://images.unsplash.com/photo-1520975922284-9e0c9f3f6c8b") center/cover;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-}
+        body {
+            margin: 0;
+            font-family: 'Raleway', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
 
-/* LOGO */
-.logo {
-  width:140px;
-  margin-bottom:20px;
-}
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--oro);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
 
-/* TITOLI */
-h1 {
-  color:#d4af37;
-}
+        /* HERO SECTION */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(18,18,18,1)), 
+                        url('https://images.unsplash.com/photo-1516962080544-eac695c93791?auto=format&fit=crop&q=80&w=1600') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
 
-h2 {
-  text-align:center;
-  color:#d4af37;
-}
+        .logo-img {
+            width: 100%;           /* Occupa tutto lo spazio disponibile... */
+            max-width: 800px;      /* ...ma non superare gli 800px (come originale) */
+            height: auto;          /* Mantieni le proporzioni */
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); /* Ombra per staccare dallo sfondo */
+            display: block;        /* Centratura corretta */
+        }
 
-/* SEZIONI */
-section {
-  padding:60px 20px;
-  max-width:1000px;
-  margin:auto;
-}
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            max-width: 600px;
+        }
 
-/* CARD */
-.grid {
-  display:grid;
-  gap:20px;
-}
+        /* SEZIONI */
+        section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
 
-.card {
-  background:#111;
-  padding:20px;
-  border-radius:10px;
-  border:1px solid #222;
-}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
 
-/* FORM */
-select, input {
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  background:#111;
-  border:1px solid #333;
-  color:white;
-}
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 4px;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
 
-button {
-  width:100%;
-  padding:15px;
-  margin-top:15px;
-  background:#d4af37;
-  border:none;
-  font-weight:bold;
-}
+        .card:hover {
+            border-bottom: 3px solid var(--oro);
+            transform: translateY(-5px);
+        }
 
-/* WHATSAPP */
-.whatsapp {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  padding:15px;
-  border-radius:50%;
-  color:white;
-}
-</style>
+        /* PREVENTIVATORE */
+        .configuratore {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .step { margin-bottom: 25px; }
+        label { display: block; margin-bottom: 10px; font-weight: 600; color: var(--oro); }
+
+        select, input[type="text"], input[type="tel"] {
+            width: 100%;
+            padding: 15px;
+            background: #2a2a2a;
+            border: 1px solid #444;
+            color: white;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .btn-calcola {
+            background: transparent;
+            border: 2px solid var(--oro);
+            color: var(--oro);
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn-calcola:hover {
+            background: var(--oro);
+            color: black;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        #totale-box {
+            font-size: 2rem;
+            text-align: center;
+            margin: 20px 0;
+            color: var(--oro);
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* WHATSAPP FLOAT */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            z-index: 100;
+            text-decoration: none;
+            font-size: 30px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            border-top: 1px solid #222;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="hero">
-  <img src="https://i.imgur.com/XL1pSuM.jpeg" class="logo">
-  <h1>Funeral Home Palermo</h1>
-  <p>Eleganza, rispetto e professionalità</p>
-</div>
+    <div class="hero">
+        <img src="https://i.imgur.com/XL1pSuM.jpeg" alt="Funeral Home Palermo" class="logo-img">
+        <h1>Funeral Home Palermo</h1>
+        <p>Un supporto dignitoso e professionale nel cuore di Palermo, disponibile 24 ore su 24.</p>
+    </div>
 
-<section>
-<h2>Servizi</h2>
-<div class="grid">
-<div class="card">Funerali completi</div>
-<div class="card">Cremazione</div>
-<div class="card">Trasporto salme</div>
-<div class="card">Pratiche burocratiche</div>
-</div>
-</section>
+    <section id="servizi">
+        <h2>I Nostri Servizi</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Servizio Completo</h3>
+                <p>Organizzazione totale del rito funebre, dalla vestizione alla sepoltura.</p>
+            </div>
+            <div class="card">
+                <h3>Cremazione</h3>
+                <p>Assistenza completa per pratiche di cremazione e affido ceneri.</p>
+            </div>
+            <div class="card">
+                <h3>Trasporto</h3>
+                <p>Trasferimento salme nazionale e internazionale con mezzi moderni.</p>
+            </div>
+        </div>
+    </section>
 
-<section>
-<h2>Configura il tuo funerale</h2>
+    <section id="preventivo">
+        <h2>Configura un Preventivo</h2>
+        <div class="configuratore">
+            <div class="step">
+                <label>Tipo di Servizio</label>
+                <select id="servizio">
+                    <option value="2000" data-name="Funerale Standard">Sepoltura - €2000</option>
+                    <option value="1500" data-name="Cremazione">Cremazione - €1500</option>
+                </select>
+            </div>
 
-<select id="servizio">
-<option value="2000">Sepoltura - €2000</option>
-<option value="1500">Cremazione - €1500</option>
-</select>
+            <div class="step">
+                <label>Scelta del Cofano (Bara)</label>
+                <select id="bara">
+                    <option value="500" data-name="Bara Base">Modello Essenziale - €500</option>
+                    <option value="1200" data-name="Bara Elegante">Modello Elegante - €1200</option>
+                    <option value="3000" data-name="Bara Lusso">Modello Intarsiato Lusso - €3000</option>
+                </select>
+            </div>
 
-<select id="bara">
-<option value="500">Base - €500</option>
-<option value="1200">Elegante - €1200</option>
-<option value="3000">Lusso - €3000</option>
-</select>
+            <div class="step">
+                <label>Servizi Aggiuntivi</label>
+                <div class="checkbox-group">
+                    <span><input type="checkbox" value="150" class="extra" data-name="Addobbi Floreali"> Fiori (+€150)</span>
+                    <span><input type="checkbox" value="300" class="extra" data-name="Auto di Rappresentanza"> Auto Lusso (+€300)</span>
+                    <span><input type="checkbox" value="200" class="extra" data-name="Disbrigo Pratiche"> Pratiche Comunali (+€200)</span>
+                    <span><input type="checkbox" value="100" class="extra" data-name="Vestizione"> Vestizione (+€100)</span>
+                </div>
+            </div>
 
-<input type="checkbox" value="150" class="extra"> Fiori (€150)<br>
-<input type="checkbox" value="300" class="extra"> Auto (€300)<br>
+            <button class="btn-calcola" onclick="calcola()">AGGIORNA TOTALE</button>
+            
+            <div id="totale-box">Totale stimato: €0</div>
 
-<button onclick="calcola()">Calcola</button>
+            <input type="text" id="nome" placeholder="Il tuo Nome e Cognome">
+            <button class="btn-whatsapp" onclick="inviaWhatsApp()">
+                INVIA DETTAGLI SU WHATSAPP
+            </button>
+        </div>
+    </section>
 
-<h2 id="totale"></h2>
+    <a href="https://wa.me/393343484670" class="whatsapp-float" target="_blank">
+        <span style="color: white;">💬</span>
+    </a>
 
-<input type="text" id="nome" placeholder="Nome">
-<input type="tel" id="telefono" placeholder="Telefono">
+    <footer>
+        <p>&copy; 2026 Funeral Home Palermo - Tutti i diritti riservati.<br>Reperibilità h24: 334 348 4670</p>
+    </footer>
 
-<button onclick="inviaWhatsApp()">Invia richiesta</button>
-</section>
+    <script>
+        let totaleFinale = 0;
+        let riepilogo = "";
 
-<section>
-<h2>Necrologi</h2>
-<div class="grid">
-<div class="card">Giuseppe Russo - 1945 / 2025</div>
-<div class="card">Maria Bianchi - 1938 / 2025</div>
-<div class="card">Salvatore Greco - 1950 / 2025</div>
-<div class="card">Antonio Romano - 1942 / 2025</div>
-</div>
-</section>
+        function calcola() {
+            let s = document.getElementById("servizio");
+            let b = document.getElementById("bara");
+            
+            let costoServizio = parseInt(s.value);
+            let nomeServizio = s.options[s.selectedIndex].getAttribute('data-name');
+            
+            let costoBara = parseInt(b.value);
+            let nomeBara = b.options[b.selectedIndex].getAttribute('data-name');
 
-<section>
-<h2>Recensioni</h2>
-<div class="grid">
-<div class="card">⭐⭐⭐⭐⭐ - Maria R. “Servizio impeccabile e grande umanità.”</div>
-<div class="card">⭐⭐⭐⭐⭐ - Giuseppe L. “Professionalità assoluta.”</div>
-<div class="card">⭐⭐⭐⭐⭐ - Antonio P. “Consigliatissimi.”</div>
-<div class="card">⭐⭐⭐⭐⭐ - Lucia M. “Gentili e disponibili.”</div>
-<div class="card">⭐⭐⭐⭐⭐ - Salvatore D. “Tutto perfetto.”</div>
-<div class="card">⭐⭐⭐⭐⭐ - Francesca T. “Grande rispetto.”</div>
-<div class="card">⭐⭐⭐⭐⭐ - Marco G. “Organizzazione eccellente.”</div>
-<div class="card">⭐⭐⭐⭐⭐ - Giulia C. “Supporto incredibile.”</div>
-<div class="card">⭐⭐⭐⭐⭐ - Andrea F. “Servizio di alto livello.”</div>
-<div class="card">⭐⭐⭐⭐⭐ - Paolo S. “Molto seri e affidabili.”</div>
-</div>
-</section>
+            let extras = document.querySelectorAll(".extra:checked");
+            let extraTot = 0;
+            let listaExtra = "";
 
-<a class="whatsapp" href="https://wa.me/393343484670">💬</a>
+            extras.forEach(e => {
+                extraTot += parseInt(e.value);
+                listaExtra += "- " + e.getAttribute('data-name') + "%0A";
+            });
 
-<script>
-let totaleFinale = 0;
+            totaleFinale = costoServizio + costoBara + extraTot;
+            document.getElementById("totale-box").innerText = "Totale stimato: €" + totaleFinale;
 
-function calcola() {
-let servizio = parseInt(document.getElementById("servizio").value);
-let bara = parseInt(document.getElementById("bara").value);
+            // Prepariamo il testo per WhatsApp
+            riepilogo = "Salve, vorrei un preventivo per:%0A" +
+                        "*Servizio:* " + nomeServizio + "%0A" +
+                        "*Cofano:* " + nomeBara + "%0A" +
+                        "*Extra:* %0A" + (listaExtra || "Nessuno%0A");
+        }
 
-let extras = document.querySelectorAll(".extra:checked");
-let extraTot = 0;
+        function inviaWhatsApp() {
+            let nome = document.getElementById("nome").value;
+            if(!nome) { alert("Per favore, inserisci il tuo nome"); return; }
+            if(totaleFinale === 0) calcola();
 
-extras.forEach(e => extraTot += parseInt(e.value));
+            let messaggio = riepilogo + 
+                            "%0A*TOTALE STIMATO:* €" + totaleFinale + 
+                            "%0A*Richiedente:* " + nome;
 
-totaleFinale = servizio + bara + extraTot;
-
-document.getElementById("totale").innerText = "Totale: €" + totaleFinale;
-}
-
-function inviaWhatsApp() {
-let nome = document.getElementById("nome").value;
-let telefono = document.getElementById("telefono").value;
-
-let messaggio = "Richiesta funerale:%0A" +
-"Nome: " + nome + "%0A" +
-"Telefono: " + telefono + "%0A" +
-"Totale: €" + totaleFinale;
-
-window.open("https://wa.me/393343484670?text=" + messaggio);
-}
-</script>
-
+            window.open("https://wa.me/393343484670?text=" + messaggio);
+        }
+    </script>
 </body>
 </html>
