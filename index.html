@@ -8,34 +8,43 @@
 body {
   margin:0;
   font-family: Arial;
-  background:#0c0c1d;
   color:white;
 }
 
-/* HEADER */
-header {
+/* SFONDO */
+.hero {
+  background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb") center/cover;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   text-align:center;
-  padding:40px 20px;
-  background:linear-gradient(#0c0c1d,#1a1a3a);
+  background-blend-mode: darken;
+  background-color: rgba(0,0,0,0.6);
 }
 
-header h1 {
+/* LOGO */
+.logo {
+  width:150px;
+  margin-bottom:20px;
+}
+
+/* TITOLI */
+h1 {
   color:gold;
-  margin:0;
-}
-
-header p {
-  font-style:italic;
-}
-
-/* SEZIONI */
-section {
-  padding:40px 20px;
+  font-size:40px;
 }
 
 h2 {
   color:gold;
   text-align:center;
+}
+
+/* SEZIONI */
+section {
+  padding:50px 20px;
+  background:#0c0c1d;
 }
 
 /* SERVIZI */
@@ -44,20 +53,17 @@ h2 {
   gap:20px;
 }
 
-.box-servizio {
+.card {
   background:#1a1a3a;
   padding:20px;
   border-radius:10px;
 }
 
 /* CONFIGURATORE */
-.box {
-  margin-bottom:15px;
-}
-
-select, input {
+input, select {
   width:100%;
-  padding:10px;
+  padding:12px;
+  margin-top:10px;
 }
 
 button {
@@ -66,68 +72,63 @@ button {
   background:gold;
   border:none;
   font-weight:bold;
-  margin-top:10px;
+  margin-top:15px;
 }
 
-/* WHATSAPP FLOAT */
+/* WHATSAPP */
 .whatsapp {
   position:fixed;
   bottom:20px;
   right:20px;
-  background:green;
+  background:#25D366;
   color:white;
   padding:15px;
   border-radius:50%;
-  font-size:20px;
+  font-size:22px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<div class="hero">
+  <img src="https://imgur.com/a/E8ZGSjh" class="logo">
   <h1>Funeral Home Palermo</h1>
-  <p>"Affidati a noi per onorare la memoria con dignità"</p>
-</header>
+  <p>Onoriamo la memoria con dignità</p>
+</div>
 
 <section>
   <h2>I Nostri Servizi</h2>
   <div class="servizi">
-    <div class="box-servizio">Funerali completi</div>
-    <div class="box-servizio">Cremazione</div>
-    <div class="box-servizio">Trasporto salme</div>
-    <div class="box-servizio">Pratiche burocratiche</div>
+    <div class="card">Funerali completi a partire da €2000</div>
+    <div class="card">Cremazione e servizi dedicati</div>
+    <div class="card">Trasporto salme nazionale</div>
+    <div class="card">Gestione pratiche burocratiche</div>
   </div>
 </section>
 
 <section>
   <h2>Crea il tuo funerale</h2>
 
-  <div class="box">
-    <select id="servizio">
-      <option value="2000">Sepoltura - €2000</option>
-      <option value="1500">Cremazione - €1500</option>
-    </select>
-  </div>
+  <select id="servizio">
+    <option value="2000">Sepoltura - €2000</option>
+    <option value="1500">Cremazione - €1500</option>
+  </select>
 
-  <div class="box">
-    <select id="bara">
-      <option value="500">Base - €500</option>
-      <option value="1200">Elegante - €1200</option>
-      <option value="3000">Lusso - €3000</option>
-    </select>
-  </div>
+  <select id="bara">
+    <option value="500">Bara Base - €500</option>
+    <option value="1200">Bara Elegante - €1200</option>
+    <option value="3000">Bara Lusso - €3000</option>
+  </select>
 
-  <div class="box">
-    <input type="checkbox" value="150" class="extra"> Fiori (€150)<br>
-    <input type="checkbox" value="200" class="extra"> Auto extra (€200)<br>
-  </div>
+  <input type="checkbox" value="150" class="extra"> Fiori (€150)<br>
+  <input type="checkbox" value="200" class="extra"> Auto extra (€200)<br>
 
   <button onclick="calcola()">Calcola totale</button>
 
   <h2 id="totale"></h2>
 
-  <input type="text" id="nome" placeholder="Nome">
+  <input type="text" id="nome" placeholder="Nome e cognome">
   <input type="tel" id="telefono" placeholder="Telefono">
 
   <button onclick="inviaWhatsApp()">Invia richiesta</button>
