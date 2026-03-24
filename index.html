@@ -2,94 +2,82 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-
-<title>Funeral Home Palermo - Servizi Funebri a Palermo</title>
-
-<meta name="description" content="Servizi funebri a Palermo. Funerali completi a partire da 2000€. Preventivo immediato online. Contattaci subito.">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- GOOGLE -->
-<meta name="robots" content="index, follow">
-
-<!-- SOCIAL -->
-<meta property="og:title" content="Funeral Home Palermo">
-<meta property="og:description" content="Servizi funebri completi a Palermo">
-<meta property="og:type" content="website">
-
-</head>
-<meta charset="UTF-8">
 <title>Funeral Home Palermo</title>
 
 <style>
 body {
   margin:0;
-  font-family: Arial;
-  color:white;
+  font-family: 'Georgia', serif;
+  background:#0a0a0a;
+  color:#eaeaea;
 }
 
-/* SFONDO */
+/* HERO */
 .hero {
-  background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb") center/cover;
   height:100vh;
+  background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
+              url("https://images.unsplash.com/photo-1520975922284-9e0c9f3f6c8b") center/cover;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
-  background-blend-mode: darken;
-  background-color: rgba(0,0,0,0.6);
 }
 
 /* LOGO */
 .logo {
-  width:150px;
+  width:140px;
   margin-bottom:20px;
 }
 
 /* TITOLI */
 h1 {
-  color:gold;
-  font-size:40px;
+  color:#d4af37;
 }
 
 h2 {
-  color:gold;
   text-align:center;
+  color:#d4af37;
 }
 
 /* SEZIONI */
 section {
-  padding:50px 20px;
-  background:#0c0c1d;
+  padding:60px 20px;
+  max-width:1000px;
+  margin:auto;
 }
 
-/* SERVIZI */
-.servizi {
+/* CARD */
+.grid {
   display:grid;
   gap:20px;
 }
 
 .card {
-  background:#1a1a3a;
+  background:#111;
   padding:20px;
   border-radius:10px;
+  border:1px solid #222;
 }
 
-/* CONFIGURATORE */
-input, select {
+/* FORM */
+select, input {
   width:100%;
   padding:12px;
   margin-top:10px;
+  background:#111;
+  border:1px solid #333;
+  color:white;
 }
 
 button {
   width:100%;
   padding:15px;
-  background:gold;
+  margin-top:15px;
+  background:#d4af37;
   border:none;
   font-weight:bold;
-  margin-top:15px;
 }
 
 /* WHATSAPP */
@@ -98,10 +86,9 @@ button {
   bottom:20px;
   right:20px;
   background:#25D366;
-  color:white;
   padding:15px;
   border-radius:50%;
-  font-size:22px;
+  color:white;
 }
 </style>
 </head>
@@ -109,54 +96,72 @@ button {
 <body>
 
 <div class="hero">
-  <img src="https://imgur.com/a/E8ZGSjh" class="logo">
+  <img src="https://i.imgur.com/XL1pSuM.jpeg" class="logo">
   <h1>Funeral Home Palermo</h1>
-  <p>Onoriamo la memoria con dignità</p>
+  <p>Eleganza, rispetto e professionalità</p>
 </div>
 
 <section>
-  <h2>I Nostri Servizi</h2>
-  <div class="servizi">
-    <div class="card">Funerali completi a partire da €2000</div>
-    <div class="card">Cremazione e servizi dedicati</div>
-    <div class="card">Trasporto salme nazionale</div>
-    <div class="card">Gestione pratiche burocratiche</div>
-  </div>
+<h2>Servizi</h2>
+<div class="grid">
+<div class="card">Funerali completi</div>
+<div class="card">Cremazione</div>
+<div class="card">Trasporto salme</div>
+<div class="card">Pratiche burocratiche</div>
+</div>
 </section>
 
 <section>
-  <h2>Crea il tuo funerale</h2>
+<h2>Configura il tuo funerale</h2>
 
-  <select id="servizio">
-    <option value="2000">Sepoltura - €2000</option>
-    <option value="1500">Cremazione - €1500</option>
-  </select>
+<select id="servizio">
+<option value="2000">Sepoltura - €2000</option>
+<option value="1500">Cremazione - €1500</option>
+</select>
 
-  <select id="bara">
-    <option value="500">Bara Base - €500</option>
-    <option value="1200">Bara Elegante - €1200</option>
-    <option value="3000">Bara Lusso - €3000</option>
-  </select>
+<select id="bara">
+<option value="500">Base - €500</option>
+<option value="1200">Elegante - €1200</option>
+<option value="3000">Lusso - €3000</option>
+</select>
 
-  <input type="checkbox" value="150" class="extra"> Fiori (€150)<br>
-  <input type="checkbox" value="200" class="extra"> Auto extra (€200)<br>
+<input type="checkbox" value="150" class="extra"> Fiori (€150)<br>
+<input type="checkbox" value="300" class="extra"> Auto (€300)<br>
 
-  <button onclick="calcola()">Calcola totale</button>
+<button onclick="calcola()">Calcola</button>
 
-  <h2 id="totale"></h2>
+<h2 id="totale"></h2>
 
-  <input type="text" id="nome" placeholder="Nome e cognome">
-  <input type="tel" id="telefono" placeholder="Telefono">
+<input type="text" id="nome" placeholder="Nome">
+<input type="tel" id="telefono" placeholder="Telefono">
 
-  <button onclick="inviaWhatsApp()">Invia richiesta</button>
+<button onclick="inviaWhatsApp()">Invia richiesta</button>
 </section>
 
 <section>
-  <h2>Contatti</h2>
-  <p style="text-align:center;">
-    📞 334 348 4670<br>
-    📍 Palermo
-  </p>
+<h2>Necrologi</h2>
+<div class="grid">
+<div class="card">Giuseppe Russo - 1945 / 2025</div>
+<div class="card">Maria Bianchi - 1938 / 2025</div>
+<div class="card">Salvatore Greco - 1950 / 2025</div>
+<div class="card">Antonio Romano - 1942 / 2025</div>
+</div>
+</section>
+
+<section>
+<h2>Recensioni</h2>
+<div class="grid">
+<div class="card">⭐⭐⭐⭐⭐ - Maria R. “Servizio impeccabile e grande umanità.”</div>
+<div class="card">⭐⭐⭐⭐⭐ - Giuseppe L. “Professionalità assoluta.”</div>
+<div class="card">⭐⭐⭐⭐⭐ - Antonio P. “Consigliatissimi.”</div>
+<div class="card">⭐⭐⭐⭐⭐ - Lucia M. “Gentili e disponibili.”</div>
+<div class="card">⭐⭐⭐⭐⭐ - Salvatore D. “Tutto perfetto.”</div>
+<div class="card">⭐⭐⭐⭐⭐ - Francesca T. “Grande rispetto.”</div>
+<div class="card">⭐⭐⭐⭐⭐ - Marco G. “Organizzazione eccellente.”</div>
+<div class="card">⭐⭐⭐⭐⭐ - Giulia C. “Supporto incredibile.”</div>
+<div class="card">⭐⭐⭐⭐⭐ - Andrea F. “Servizio di alto livello.”</div>
+<div class="card">⭐⭐⭐⭐⭐ - Paolo S. “Molto seri e affidabili.”</div>
+</div>
 </section>
 
 <a class="whatsapp" href="https://wa.me/393343484670">💬</a>
@@ -165,29 +170,29 @@ button {
 let totaleFinale = 0;
 
 function calcola() {
-  let servizio = parseInt(document.getElementById("servizio").value);
-  let bara = parseInt(document.getElementById("bara").value);
+let servizio = parseInt(document.getElementById("servizio").value);
+let bara = parseInt(document.getElementById("bara").value);
 
-  let extras = document.querySelectorAll(".extra:checked");
-  let extraTot = 0;
+let extras = document.querySelectorAll(".extra:checked");
+let extraTot = 0;
 
-  extras.forEach(e => extraTot += parseInt(e.value));
+extras.forEach(e => extraTot += parseInt(e.value));
 
-  totaleFinale = servizio + bara + extraTot;
+totaleFinale = servizio + bara + extraTot;
 
-  document.getElementById("totale").innerText = "Totale: €" + totaleFinale;
+document.getElementById("totale").innerText = "Totale: €" + totaleFinale;
 }
 
 function inviaWhatsApp() {
-  let nome = document.getElementById("nome").value;
-  let telefono = document.getElementById("telefono").value;
+let nome = document.getElementById("nome").value;
+let telefono = document.getElementById("telefono").value;
 
-  let messaggio = "Nuova richiesta funerale:%0A" +
-                  "Nome: " + nome + "%0A" +
-                  "Telefono: " + telefono + "%0A" +
-                  "Totale: €" + totaleFinale;
+let messaggio = "Richiesta funerale:%0A" +
+"Nome: " + nome + "%0A" +
+"Telefono: " + telefono + "%0A" +
+"Totale: €" + totaleFinale;
 
-  window.open("https://wa.me/393343484670?text=" + messaggio);
+window.open("https://wa.me/393343484670?text=" + messaggio);
 }
 </script>
 
