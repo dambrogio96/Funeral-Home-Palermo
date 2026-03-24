@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Funeral Home Palermo</title>
+
+<style>
+body {
+  font-family: Arial;
+  background:#0c0c1d;
+  color:white;
+  padding:20px;
+}
+
+h1 {
+  color:gold;
+  text-align:center;
+}
+
+.box {
+  margin-bottom:20px;
+}
+
+button {
+  background:gold;
+  color:black;
+  padding:12px;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+  width:100%;
+}
+
+select, input {
+  padding:10px;
+  width:100%;
+  margin-top:5px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Funeral Home Palermo</h1>
+
+<h2>Crea il tuo funerale</h2>
+
+<div class="box">
+  <h3>Tipo servizio</h3>
+  <select id="servizio">
+    <option value="2000">Sepoltura - €2000</option>
+    <option value="1500">Cremazione - €1500</option>
+  </select>
+</div>
+
+<div class="box">
+  <h3>Bara</h3>
+  <select id="bara">
+    <option value="500">Base - €500</option>
+    <option value="1200">Elegante - €1200</option>
+    <option value="3000">Lusso - €3000</option>
+  </select>
+</div>
+
+<div class="box">
+  <h3>Servizi extra</h3>
+  <input type="checkbox" value="150" class="extra"> Fiori (€150)<br>
+  <input type="checkbox" value="200" class="extra"> Auto funebre extra (€200)<br>
+  <input type="checkbox" value="100" class="extra"> Musica (€100)
+</div>
+
+<button onclick="calcola()">Calcola totale</button>
+
+<h2 id="totale"></h2>
+
+<h3>Dati cliente</h3>
+<input type="text" id="nome" placeholder="Nome e cognome">
+<input type="tel" id="telefono" placeholder="Telefono">
+
+<br><br>
+
+<button onclick="inviaWhatsApp()">Invia richiesta su WhatsApp</button>
+
+<script>
+let totaleFinale = 0;
+
+function calcola() {
+  let servizio = parseInt(document.getElementById("servizio").value);
+  let bara = parseInt(document.getElementById("bara").value);
+
+  let extras = document.querySelectorAll(".extra:checked");
+  let extraTot = 0;
+  let extraText = "";
+
+  extras.forEach(e => {
+    extraTot += parseInt(e.value);
+    extraText += "- " + e.parentElement.innerText + "%0A";
+  });
+
+  totaleFinale = servizio + bara + extraTot;
+
+  document.getElementById("totale").innerText = "Totale: €" + totaleFinale;
+
+  localStorage.setItem("ordine", JSON.stringify({
+    servizio,
+    bara,
+    extraText,
+    totaleFinale
+  }));
+}
+
+function inviaWhatsApp() {
+
+  let nome = document.getElementById("nome").value;
+  let telefono = document.getElementById("telefono").value;
+
+  let ordine = JSON.parse(localStorage.getItem("ordine"));
+
+  let messaggio = "Nuova richiesta funerale:%0A%0A" +
+                  "Nome: " + nome + "%0A" +
+                  "Telefono: " + telefono + "%0A%0A" +
+                  "Dettagli:%0A" +
+                  ordine.extraText + "%0A" +
+                  "Totale: €" + ordine.totaleFinale;
+
+  let numero = "393343484670";
+
+  window.open("https://wa.me/" + numero + "?text=" + messaggio);
+}
+</script>
+
+</body>
+</html>
